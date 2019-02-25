@@ -3,7 +3,7 @@ import axios from 'axios'
 
 class HelloWorld extends Component {
   state = {
-    board: []
+    game: []
   }
 
   componentDidMount() {
@@ -14,10 +14,24 @@ class HelloWorld extends Component {
       .then((resp) => {
         console.log({ resp })
         this.setState({
-          board: resp.data.board
+          game: resp.data.board
+          // id: resp.data.board.id
         })
       })
   }
+
+  // checkForBomb = (event) => {
+  //   axios
+  //     .post(`'https://minesweeper-api.herokuapp.com/games/${this.state.id}/check'`, {
+  //       difficulty: 0
+  //     })
+  //     .then((resp) => {
+  //       console.log(resp)
+  //       // this.setState({
+  //       //   updateGame: resp.data.board
+  //       // })
+  //     })
+  // }
 
   render() {
     return (
@@ -29,12 +43,13 @@ class HelloWorld extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.board.map((row) => {
+            {this.state.game.map((row) => {
               return (
                 <tr>
                   {row.map((col) => {
                     return (
                       // <td onClick={}> / *add onclick call to function here to click and play the game - left and right clicks
+                      // <td onClick={this.checkForBomb}>
                       <td>
                         <button>{col}</button>
                       </td>
