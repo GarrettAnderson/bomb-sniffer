@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BoardCell from './BoardCell'
 import axios from 'axios'
 
 class BoardRow extends Component {
@@ -21,7 +22,7 @@ class BoardRow extends Component {
       })
   }
 
-  checkForBomb(x, y) {
+  checkForBomb = (x, y) => {
     axios
       .post(`https://minesweeper-api.herokuapp.com/games/${this.state.id}/check`, {
         id: this.state.id,
@@ -31,12 +32,13 @@ class BoardRow extends Component {
       .then((resp) => {
         console.log({ resp })
         this.setState({
-          game: resp.data.board
+          game: resp.data.board,
+          id: resp.data.id
         })
       })
   }
 
-  flagBomb(x, y) {
+  flagBomb = (event, x, y) => {
     event.preventDefault()
     axios
       .post(`https://minesweeper-api.herokuapp.com/games/${this.state.id}/flag`, {
@@ -47,7 +49,8 @@ class BoardRow extends Component {
       .then((resp) => {
         console.log(resp)
         this.setState({
-          game: resp.data.board
+          game: resp.data.board,
+          id: resp.data.id
         })
       })
   }
@@ -58,13 +61,20 @@ class BoardRow extends Component {
         {this.state.game.map((row, x) => {
           return (
             <tr key={x}>
+              {/* <tr> */}
               {row.map((col, y) => {
                 return (
                   // <td onClick={}> / *add onclick call to function here to click and play the game - left and right clicks
                   // <td onClick={this.checkForBomb}>
-                  <td key={y} onClick={() => this.checkForBomb(x, y)} onContextMenu={(event) => this.flagBomb(x, y)}>
-                    {col}
-                  </td>
+                  <BoardCell
+                    key={y}
+                    rowIndex={x}
+                    row={row}
+                    columnIndex={y}
+                    column={col}
+                    check={this.checkForBomb}
+                    flag={this.flagBomb}
+                  />
                 )
               })}
             </tr>

@@ -3,7 +3,8 @@ import BoardRow from './BoardRow'
 
 class Board extends Component {
   state = {
-    game: []
+    game: [ [] ],
+    id: 0
   }
 
   // checkForBomb = (event) => {
