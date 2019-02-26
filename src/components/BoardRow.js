@@ -23,13 +23,16 @@ class BoardRow extends Component {
 
   checkForBomb(x, y) {
     axios
-      .post(`https://minesweeper-api.herokuapp/games/${this.state.id}/check`, {
+      .post(`https://minesweeper-api.herokuapp.com/games/${this.state.id}/check`, {
         id: this.state.id,
         row: x,
         col: y
       })
       .then((resp) => {
         console.log({ resp })
+        this.setState({
+          game: resp.data.board
+        })
       })
   }
 
@@ -44,11 +47,7 @@ class BoardRow extends Component {
                   // <td onClick={}> / *add onclick call to function here to click and play the game - left and right clicks
                   // <td onClick={this.checkForBomb}>
                   <td key={y} onClick={() => this.checkForBomb(x, y)}>
-                    {/* <button> */}
                     {col}
-                    {x},
-                    {y}
-                    {/* </button> */}
                   </td>
                 )
               })}
