@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import Board from './components/Board'
+import BoardRow from './components/BoardRow'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return <Board />
   }
 }
 

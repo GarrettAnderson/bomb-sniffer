@@ -35,4 +35,5 @@ td {
   padding: 1rem;
   box-shadow: 1px 1px;
   background-color: #bcbcbc;
+  cursor: pointer;
 }
