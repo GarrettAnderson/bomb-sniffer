@@ -24,7 +24,8 @@ section {
   align-items: center;
 }
 
-.table-heading h1 {
+.table-heading h1,
+h3 {
   color: #fcbb21;
 }
 

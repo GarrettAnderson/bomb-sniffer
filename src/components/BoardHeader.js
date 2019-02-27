@@ -32,8 +32,8 @@ class TableHeader extends Component {
       <thead className="table-heading">
         <tr>
           <th colSpan="8">
-            {/* <h3>Minesweeper</h3> */}
-            <h1>Minesweeper || Level: {this.props.status}</h1>
+            <h1>Minesweeper</h1>
+            <h3>Level: {this.props.status}</h3>
             {/* <select className="skill-level-dropdown">
               <option onClick={this.checkDifficulty} value="Beginner">
                 Beginner
