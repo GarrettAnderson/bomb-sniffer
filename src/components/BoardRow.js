@@ -3,12 +3,12 @@ import BoardCell from './BoardCell'
 import axios from 'axios'
 
 class BoardRow extends Component {
-  state = {
-    game: [ [] ],
-    gameStatus: '',
-    id: 0,
-    difficulty: 0
-  }
+  // state = {
+  //   game: [ [] ],
+  //   gameStatus: '',
+  //   id: 0,
+  //   difficulty: 0
+  // }
 
   render() {
     return (

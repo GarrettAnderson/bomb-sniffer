@@ -16,21 +16,37 @@ class Board extends Component {
   }
 
   checkDifficulty = (event) => {
-    console.log(event)
-    if (event.target.value === 'Beginner') {
-      this.setState({
-        difficulty: 0
-      })
-    } else if (event.target.value === 'intermediate') {
+    event.persist()
+    let api = 'https://minesweeper-api.herokuapp.com/games'
+    axios.post(api, { difficulty: 0 }).then((resp) => {
       console.log(event)
-      this.setState({
-        difficulty: 1
-      })
-    } else if (event.target.value === 'Expert') {
-      this.setState({
-        difficulty: 2
-      })
-    }
+      if (event.target.value === 'Beginner') {
+        this.setState({
+          difficulty: 0,
+          game: resp.data.board,
+          id: resp.data.id
+        })
+        this.startNewGame()
+      } else if (event.target.value === 'Intermediate') {
+        console.log(event)
+        this.setState({
+          difficulty: 1,
+          game: resp.data.board,
+          id: resp.data.id
+        })
+        this.startNewGame()
+      } else if (event.target.value === 'Expert') {
+        this.setState({
+          difficulty: 2,
+          game: resp.data.board,
+          id: resp.data.id
+        })
+        this.startNewGame()
+        // } else {
+        //   this.startNewGame()
+      }
+    })
+    console.log(event)
   }
 
   startNewGame = () => {
@@ -41,11 +57,14 @@ class Board extends Component {
       })
       .then((resp) => {
         console.log({ resp })
-        this.setState({
-          game: resp.data.board,
-          id: resp.data.id,
-          gameStatus: resp.data.state
-        })
+        if (resp.data.state === 'new') {
+          this.setState({
+            difficulty: resp.data.difficulty,
+            game: resp.data.board,
+            id: resp.data.id,
+            gameStatus: 'Begin New Game!'
+          })
+        }
       })
   }
 
@@ -102,12 +121,24 @@ class Board extends Component {
   render() {
     return (
       <section>
+        <h1>Minesweeper</h1>
+        <h3>{this.state.gameStatus}</h3>
+        <select onChange={this.checkDifficulty} className="skill-level-dropdown">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Expert">Advanced</option>
+        </select>
         <table>
-          <BoardHeader
+          {/* <thead className="table-heading">
+            <tr>
+              <th />
+            </tr>
+          </thead> */}
+          {/* <BoardHeader
             status={this.state.gameStatus}
             gameBoard={this.state.game}
             checkDifficulty={this.checkDifficulty}
-          />
+          /> */}
           <BoardRow
             status={this.state.gameStatus}
             gameBoard={this.state.game}
