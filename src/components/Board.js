@@ -125,24 +125,28 @@ class Board extends Component {
   render() {
     return (
       <section>
-        <section className="board-heading">
-          <h1>Minesweeper</h1>
-          <h3>{this.state.gameStatus}</h3>
-          <select onChange={this.checkDifficulty} className="skill-level-dropdown">
-            <option value="0">Beginner</option>
-            <option value="1">Intermediate</option>
-            <option value="2">Advanced</option>
-          </select>
-          <button onClick={this.resetGame} className="reset-button">
-            Reset
-          </button>
+        <section className="board-container">
+          <section className="board-heading">
+            <header>
+              <h1>Minesweeper</h1>
+              <h3>{this.state.gameStatus}</h3>
+            </header>
+            <select onChange={this.checkDifficulty} className="skill-level-dropdown">
+              <option value="0">Beginner</option>
+              <option value="1">Intermediate</option>
+              <option value="2">Advanced</option>
+            </select>
+            <button onClick={this.resetGame} className="reset-button">
+              Reset
+            </button>
+          </section>
         </section>
         <table>
-          {/* <thead className="table-heading">
+          <thead className="table-heading">
             <tr>
               <th />
             </tr>
-          </thead> */}
+          </thead>
           {/* <BoardHeader
             status={this.state.gameStatus}
             gameBoard={this.state.game}

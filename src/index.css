@@ -30,16 +30,15 @@ body {
 }
 
 .board-heading {
-  /* background-image: url('./images/header.jpg'); */
-  /* background-size: cover;
+  background-image: url('./images/header.jpg');
+  background-size: cover;
   background-repeat: repeat;
   border-radius: 5px;
-  background-position-y: bottom; */
-  margin-top: 3rem;
+  background-position-y: center;
 }
 
 select.skill-level-dropdown {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 section {
@@ -47,16 +46,25 @@ section {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 table {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
   border: 3px solid #c0b3aa;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 thead {
-  border: 3px solid #c0b3aa;
+  display: none;
+  /* border: 3px solid #c0b3aa;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; */
 }
 
 th {
@@ -66,13 +74,18 @@ th {
   opacity: 0.9;
 }
 
+button.reset-button {
+  padding: 0.5rem;
+  margin: 0rem;
+}
+
 tbody {
   border: 3px solid #f9a706;
   border-radius: 5px;
   background-color: hsla(25, 15%, 71%, 0.8);
 }
 
-td {
+td.not-selected-class {
   border: 3px solid #f9a706;
   border-radius: 5px;
   padding: 1rem;
