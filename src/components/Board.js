@@ -66,7 +66,7 @@ class Board extends Component {
             difficulty: resp.data.difficulty,
             game: resp.data.board,
             id: resp.data.id,
-            gameStatus: 'Choose Difficulty Level Below and Begin New Game!'
+            gameStatus: 'Begin New Game!'
           })
         }
       })

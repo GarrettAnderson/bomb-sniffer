@@ -84,6 +84,19 @@ td {
   font-weight: bolder;
 }
 
+td.selected-class {
+  background-color: #f9a706;
+  border: 3px solid #f9a706;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 1rem;
+  height: 1rem;
+  box-shadow: 1px 1px;
+  cursor: pointer;
+  color: #0486ac;
+  font-weight: bolder;
+}
+
 .fa-flag {
   color: red !important;
 }

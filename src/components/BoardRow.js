@@ -20,6 +20,7 @@ class BoardRow extends Component {
                 return (
                   <td
                     key={y}
+                    className={col !== ' ' ? 'selected-class' : 'not-selected-class'}
                     onClick={() => this.props.checkBomb(x, y)}
                     onContextMenu={(event) => this.props.flagBomb(event, x, y)}
                   >
