@@ -8,17 +8,38 @@ html {
 
 h1,
 h3 {
-  color: #fcbb21;
+  color: lightyellow;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 0.5rem;
 }
 
 body {
   margin: 0;
   min-height: 100%;
-  background-image: url('./images/header.jpg');
+  background-image: url('./images/background.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   height: 100vh;
   max-height: 100%;
+}
+
+.board-heading {
+  /* background-image: url('./images/header.jpg'); */
+  /* background-size: cover;
+  background-repeat: repeat;
+  border-radius: 5px;
+  background-position-y: bottom; */
+  margin-top: 3rem;
+}
+
+select.skill-level-dropdown {
+  margin-bottom: 1rem;
 }
 
 section {
@@ -29,7 +50,6 @@ section {
 }
 
 table {
-  margin-top: 3rem;
   border: 3px solid #c0b3aa;
   border-radius: 5px;
 }

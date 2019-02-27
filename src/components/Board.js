@@ -13,40 +13,44 @@ class Board extends Component {
 
   componentDidMount() {
     this.startNewGame()
+    // this.checkDifficulty()
   }
 
   checkDifficulty = (event) => {
     event.persist()
     let api = 'https://minesweeper-api.herokuapp.com/games'
-    axios.post(api, { difficulty: 0 }).then((resp) => {
+    axios.post(api, { difficulty: this.state.difficulty }).then((resp) => {
       console.log(event)
-      if (event.target.value === 'Beginner') {
-        this.setState({
-          difficulty: 0,
+      this.setState(
+        {
+          difficulty: event.target.value,
           game: resp.data.board,
           id: resp.data.id
-        })
-        this.startNewGame()
-      } else if (event.target.value === 'Intermediate') {
-        console.log(event)
-        this.setState({
-          difficulty: 1,
-          game: resp.data.board,
-          id: resp.data.id
-        })
-        this.startNewGame()
-      } else if (event.target.value === 'Expert') {
-        this.setState({
-          difficulty: 2,
-          game: resp.data.board,
-          id: resp.data.id
-        })
-        this.startNewGame()
-        // } else {
-        //   this.startNewGame()
-      }
+        },
+        () => {
+          this.startNewGame()
+        }
+      )
     })
-    console.log(event)
+    // console.log(event)
+  }
+
+  resetGame = (event) => {
+    event.persist()
+    let api = 'https://minesweeper-api.herokuapp.com/games'
+    axios.post(api, { difficulty: this.state.difficulty }).then((resp) => {
+      this.setState(
+        {
+          game: resp.data.board,
+          // gameStatus: '',
+          id: resp.data.id,
+          difficulty: event.target.value
+        },
+        () => {
+          this.startNewGame()
+        }
+      )
+    })
   }
 
   startNewGame = () => {
@@ -62,7 +66,7 @@ class Board extends Component {
             difficulty: resp.data.difficulty,
             game: resp.data.board,
             id: resp.data.id,
-            gameStatus: 'Begin New Game!'
+            gameStatus: 'Choose Difficulty Level Below and Begin New Game!'
           })
         }
       })
@@ -121,13 +125,18 @@ class Board extends Component {
   render() {
     return (
       <section>
-        <h1>Minesweeper</h1>
-        <h3>{this.state.gameStatus}</h3>
-        <select onChange={this.checkDifficulty} className="skill-level-dropdown">
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Expert">Advanced</option>
-        </select>
+        <section className="board-heading">
+          <h1>Minesweeper</h1>
+          <h3>{this.state.gameStatus}</h3>
+          <select onChange={this.checkDifficulty} className="skill-level-dropdown">
+            <option value="0">Beginner</option>
+            <option value="1">Intermediate</option>
+            <option value="2">Advanced</option>
+          </select>
+          <button onClick={this.resetGame} className="reset-button">
+            Reset
+          </button>
+        </section>
         <table>
           {/* <thead className="table-heading">
             <tr>
