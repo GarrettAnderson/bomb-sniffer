@@ -15,7 +15,7 @@ class Board extends Component {
     return (
       <section>
         <table>
-          <TableHeader />
+          <TableHeader status={this.state.gameStatus} />
           <BoardRow />
         </table>
       </section>

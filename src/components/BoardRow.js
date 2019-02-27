@@ -20,7 +20,8 @@ class BoardRow extends Component {
         console.log({ resp })
         this.setState({
           game: resp.data.board,
-          id: resp.data.id
+          id: resp.data.id,
+          gameStatus: 'Game Starting'
         })
       })
   }
