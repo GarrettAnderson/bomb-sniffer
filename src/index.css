@@ -39,6 +39,16 @@ body {
 
 select.skill-level-dropdown {
   margin-bottom: 0;
+  width: 25%;
+  height: 2rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 section {
@@ -51,7 +61,7 @@ section {
 }
 
 table {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   margin-bottom: 3rem;
   border: 3px solid #c0b3aa;
   display: flex;
@@ -77,6 +87,10 @@ th {
 button.reset-button {
   padding: 0.5rem;
   margin: 0rem;
+  width: 25%;
+  border-radius: 5px;
+  margin: 0rem 0rem 1rem 0rem;
+  height: 2rem;
 }
 
 tbody {
@@ -111,5 +125,13 @@ td.selected-class {
 }
 
 .fa-flag {
+  color: red !important;
+}
+
+.fa-bomb {
+  color: red !important;
+}
+
+.fa-exclamation {
   color: red !important;
 }
