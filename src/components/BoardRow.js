@@ -25,7 +25,7 @@ class BoardRow extends Component {
         this.setState({
           game: resp.data.board,
           id: resp.data.id,
-          gameStatus: 'Game Starting'
+          gameStatus: resp.data.state
         })
       })
   }
