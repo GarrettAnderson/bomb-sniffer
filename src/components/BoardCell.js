@@ -14,18 +14,12 @@ class BoardCell extends Component {
       return <i className="fas fa-bomb" />
     } else if (this.props.character === 'F') {
       console.log('Flagged a bomb!')
+      return <i className="fas fa-flag" />
     } else {
       console.log('Still Playing')
-      return <>{this.props.character}</>
+      return <span>{this.props.character}</span>
     }
   }
 }
-// <td
-//   // key={this.props.key}
-//   onClick={() => this.props.check(this.props.rowIndex, this.props.columnIndex)}
-//   onContextMenu={(event) => this.props.flag(event, this.props.rowIndex, this.props.columnIndex)}
-// >
-
-// </td>
 
 export default BoardCell
