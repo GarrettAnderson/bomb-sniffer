@@ -40,12 +40,13 @@ thead {
 
 th {
   border: 3px solid #0486ac;
-  /* background-color: #0486ac; */
+  background-color: hsla(194, 95%, 35%, 0.5);
   opacity: 0.9;
 }
 
 tbody {
   border: 3px solid #f9a706;
+  background-color: hsla(40, 95%, 50%, 0.8);
 }
 
 td {
@@ -57,4 +58,8 @@ td {
   cursor: pointer;
   color: #0486ac;
   font-weight: bolder;
+}
+
+.fa-flag {
+  color: red !important;
 }
