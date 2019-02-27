@@ -12,7 +12,7 @@ body {
   background-image: url('./images/header.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: 70%;
+  /* background-position-y: 70%; */
   height: 100vh;
   max-height: 100%;
 }
@@ -24,17 +24,17 @@ section {
   align-items: center;
 }
 
-.table-heading h3 {
+.table-heading h1 {
   color: #fcbb21;
 }
 
 table {
-  margin-top: 5rem;
+  margin-top: 3rem;
   border: 3px solid #0486ac;
 }
 
 thead {
-  border: 23px solid #0486ac;
+  border: 3px solid #0486ac;
 }
 
 th {
