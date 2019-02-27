@@ -4,7 +4,8 @@ import BoardRow from './BoardRow'
 class Board extends Component {
   state = {
     game: [ [] ],
-    id: 0
+    id: 0,
+    gameStatus: ''
   }
 
   // checkForBomb = (event) => {
@@ -28,7 +29,10 @@ class Board extends Component {
         <table>
           <thead>
             <tr>
-              <th colSpan="8">The table header</th>
+              <th colSpan="8">
+                <h3>Minesweeper</h3>
+                <h1>{this.state.gameStatus}</h1>
+              </th>
             </tr>
           </thead>
           <BoardRow />

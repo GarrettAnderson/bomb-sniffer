@@ -18,6 +18,11 @@ section {
   align-items: center;
 }
 
+table {
+  margin-top: 2rem;
+  border: 3px solid black;
+}
+
 thead {
   border: 2px solid black;
 }

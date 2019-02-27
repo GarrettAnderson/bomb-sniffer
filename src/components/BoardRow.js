@@ -5,6 +5,7 @@ import axios from 'axios'
 class BoardRow extends Component {
   state = {
     game: [ [] ],
+    gameStatus: '',
     id: 0
   }
 
@@ -31,10 +32,25 @@ class BoardRow extends Component {
       })
       .then((resp) => {
         console.log({ resp })
-        this.setState({
-          game: resp.data.board,
-          id: resp.data.id
-        })
+        if (resp.data.state === 'lost') {
+          console.log('You Lost. Try Again')
+          this.setState({
+            game: resp.data.board,
+            gameStatus: 'You Lost. Try Again'
+          })
+        } else if (resp.data.state === 'won') {
+          console.log('🌟 Winner!! Great Job 🌟')
+          this.setState({
+            game: resp.data.board,
+            gameStatus: '🌟 Winner!! Great Job 🌟'
+          })
+        } else {
+          console.log('Playing...')
+          this.setState({
+            game: resp.data.board,
+            gameStatus: 'Playing...'
+          })
+        }
       })
   }
 
@@ -64,17 +80,22 @@ class BoardRow extends Component {
               {/* <tr> */}
               {row.map((col, y) => {
                 return (
-                  // <td onClick={}> / *add onclick call to function here to click and play the game - left and right clicks
-                  // <td onClick={this.checkForBomb}>
-                  <BoardCell
+                  <td
                     key={y}
-                    rowIndex={x}
-                    row={row}
-                    columnIndex={y}
-                    column={col}
-                    check={this.checkForBomb}
-                    flag={this.flagBomb}
-                  />
+                    onClick={() => this.checkForBomb(x, y)}
+                    onContextMenu={(event) => this.flagBomb(event, x, y)}
+                  >
+                    <BoardCell
+                      character={col}
+                      // key={y}
+                      // rowIndex={x}
+                      // row={row}
+                      // columnIndex={y}
+                      // column={col}
+                      // check={this.checkForBomb}
+                      // flag={this.flagBomb}
+                    />
+                  </td>
                 )
               })}
             </tr>
