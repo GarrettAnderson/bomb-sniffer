@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-class TableHeader extends Component {
+class BoardHeader extends Component {
   state = {
     game: [ [] ],
     gameStatus: '',
@@ -11,16 +11,16 @@ class TableHeader extends Component {
 
   checkDifficulty = (event) => {
     console.log(event)
-    if (event.type.value === 'Beginner') {
+    if (event.target.value === 'Beginner') {
       this.setState({
         difficulty: 0
       })
-    } else if (event.type.value === 'intermediate') {
+    } else if (event.target.value === 'intermediate') {
       console.log(event)
       this.setState({
         difficulty: 1
       })
-    } else if (event.type.value === 'Expert') {
+    } else if (event.target.value === 'Expert') {
       this.setState({
         difficulty: 2
       })
@@ -34,17 +34,11 @@ class TableHeader extends Component {
           <th colSpan="8">
             <h1>Minesweeper</h1>
             <h3>Level: {this.props.status}</h3>
-            {/* <select className="skill-level-dropdown">
-              <option onClick={this.checkDifficulty} value="Beginner">
-                Beginner
-              </option>
-              <option onClick={this.checkDifficulty} value="Intermediate">
-                Intermediate
-              </option>
-              <option onClick={this.checkDifficulty} value="Advanced">
-                Advanced
-              </option>
-            </select> */}
+            <select onChange={this.checkDifficulty} className="skill-level-dropdown">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
           </th>
         </tr>
       </thead>
@@ -52,4 +46,4 @@ class TableHeader extends Component {
   }
 }
 
-export default TableHeader
+export default BoardHeader

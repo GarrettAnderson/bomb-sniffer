@@ -11,6 +11,10 @@ class BoardRow extends Component {
   }
 
   componentDidMount() {
+    this.startNewGame()
+  }
+
+  startNewGame = () => {
     let api = 'https://minesweeper-api.herokuapp.com/games'
     axios
       .post(api, {

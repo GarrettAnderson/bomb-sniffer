@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BoardRow from './BoardRow'
-import TableHeader from './BoardHeader'
+import BoardHeader from './BoardHeader'
 import axios from 'axios'
 
 class Board extends Component {
@@ -15,7 +15,7 @@ class Board extends Component {
     return (
       <section>
         <table>
-          <TableHeader status={this.state.gameStatus} />
+          <BoardHeader status={this.state.gameStatus} />
           <BoardRow />
         </table>
       </section>
