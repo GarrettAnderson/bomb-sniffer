@@ -6,14 +6,15 @@ class BoardRow extends Component {
   state = {
     game: [ [] ],
     gameStatus: '',
-    id: 0
+    id: 0,
+    difficulty: 0
   }
 
   componentDidMount() {
     let api = 'https://minesweeper-api.herokuapp.com/games'
     axios
       .post(api, {
-        difficulty: 0
+        difficulty: this.state.difficulty
       })
       .then((resp) => {
         console.log({ resp })
@@ -41,10 +42,10 @@ class BoardRow extends Component {
             gameStatus: 'You Lost. Try Again'
           })
         } else if (resp.data.state === 'won') {
-          console.log('🌟 Winner!! Great Job 🌟')
+          console.log('Winner!! Great Job')
           this.setState({
             game: resp.data.board,
-            gameStatus: '🌟 Winner!! Great Job 🌟'
+            gameStatus: 'Winner!! Great Job'
           })
         } else {
           console.log('Playing...')

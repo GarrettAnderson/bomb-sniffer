@@ -5,7 +5,8 @@ class BoardCell extends Component {
   state = {
     game: [ [] ],
     gameStatus: '',
-    id: 0
+    id: 0,
+    difficulty: 0
   }
 
   render() {
@@ -15,6 +16,9 @@ class BoardCell extends Component {
     } else if (this.props.character === 'F') {
       console.log('Flagged a bomb!')
       return <i className="fas fa-flag" />
+    } else if (this.props.character === '@') {
+      console.log('Flagged a bomb!')
+      return <i class="fas fa-exclamation" />
     } else {
       console.log('Still Playing')
       return <span>{this.props.character}</span>
