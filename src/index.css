@@ -12,7 +12,6 @@ body {
   background-image: url('./images/header.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-position-y: 70%; */
   height: 100vh;
   max-height: 100%;
 }
@@ -31,26 +30,31 @@ h3 {
 
 table {
   margin-top: 3rem;
-  border: 3px solid #0486ac;
+  border: 3px solid #535b4d;
+  border-radius: 5px;
 }
 
 thead {
-  border: 3px solid #0486ac;
+  border: 3px solid #535b4d;
+  border-radius: 5px;
 }
 
 th {
-  border: 3px solid #0486ac;
-  background-color: hsla(194, 95%, 35%, 0.5);
+  border: 3px solid #535b4d;
+  border-radius: 5px;
+  background-color: hsla(94, 8%, 33%, 0.5);
   opacity: 0.9;
 }
 
 tbody {
   border: 3px solid #f9a706;
+  border-radius: 5px;
   background-color: hsla(40, 95%, 50%, 0.8);
 }
 
 td {
   border: 3px solid #f9a706;
+  border-radius: 5px;
   padding: 1rem;
   width: 1rem;
   height: 1rem;
