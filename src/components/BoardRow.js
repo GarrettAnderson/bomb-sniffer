@@ -10,8 +10,9 @@ class BoardRow extends Component {
   }
 
   componentDidMount() {
+    let api = 'https://minesweeper-api.herokuapp.com/games'
     axios
-      .post('https://minesweeper-api.herokuapp.com/games', {
+      .post(api, {
         difficulty: 0
       })
       .then((resp) => {
@@ -24,8 +25,9 @@ class BoardRow extends Component {
   }
 
   checkForBomb = (x, y) => {
+    let api = 'https://minesweeper-api.herokuapp.com/games'
     axios
-      .post(`https://minesweeper-api.herokuapp.com/games/${this.state.id}/check`, {
+      .post(api + `/${this.state.id}/check`, {
         id: this.state.id,
         row: x,
         col: y
@@ -77,7 +79,6 @@ class BoardRow extends Component {
         {this.state.game.map((row, x) => {
           return (
             <tr key={x}>
-              {/* <tr> */}
               {row.map((col, y) => {
                 return (
                   <td
@@ -85,16 +86,7 @@ class BoardRow extends Component {
                     onClick={() => this.checkForBomb(x, y)}
                     onContextMenu={(event) => this.flagBomb(event, x, y)}
                   >
-                    <BoardCell
-                      character={col}
-                      // key={y}
-                      // rowIndex={x}
-                      // row={row}
-                      // columnIndex={y}
-                      // column={col}
-                      // check={this.checkForBomb}
-                      // flag={this.flagBomb}
-                    />
+                    <BoardCell character={col} />
                   </td>
                 )
               })}
