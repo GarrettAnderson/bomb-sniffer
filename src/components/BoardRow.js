@@ -58,8 +58,9 @@ class BoardRow extends Component {
 
   flagBomb = (event, x, y) => {
     event.preventDefault()
+    let api = 'https://minesweeper-api.herokuapp.com/games'
     axios
-      .post(`https://minesweeper-api.herokuapp.com/games/${this.state.id}/flag`, {
+      .post(api + `/${this.state.id}/flag`, {
         id: this.state.id,
         row: x,
         col: y
