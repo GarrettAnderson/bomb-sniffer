@@ -42,7 +42,11 @@ select.skill-level-dropdown {
   margin-bottom: 0;
   width: 25%;
   height: 2rem;
-  color: lightyellow;
+  border-color: #ffffe0;
+  border-radius: 5%;
+  color: hsl(208, 62%, 22%);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 header {
@@ -93,7 +97,11 @@ button.reset-button {
   border-radius: 5px;
   margin: 0rem 0rem 1rem 0rem;
   height: 2rem;
-  color: lightyellow;
+  border-color: #ffffe0;
+  background-color: hsl(39, 92%, 53%, 0.9);
+  color: hsl(208, 62%, 22%);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 tbody {
