@@ -146,3 +146,7 @@ td.selected-class {
 .fa-exclamation {
   color: red !important;
 }
+
+section.board-container {
+  padding-bottom: 3rem;
+}
